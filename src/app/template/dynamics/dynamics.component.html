@@ -22,9 +22,12 @@
         <label class="col-sm-3 col-form-label">Agregar</label>
         <div class="col-sm-9">
             <div class="input-group">
-                <input class="form-control" 
+                <input class="form-control"
+                [(ngModel)]='newGame'
+                (keyUp.enter)="add()"
+                name="newGame" 
                 placeholder="Agregar juego favorito">
-                <button class="btn btn-outline-primary" type="button">Agregar</button>
+                <button class="btn btn-outline-primary" type="button" (click)="add(  )">Agregar</button>
             </div>
         </div>
     </div>

@@ -1,1 +1,106 @@
-<p>switches works!</p>
+<h2>Template: switches</h2>
+<hr>
+
+<form #myForm="ngForm">
+
+    <!-- Radio -->
+    <div class="row mb-3">
+        <div class="col-sm-3 col-form-label">Genero</div>
+        <div class="col-sm-9">
+
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio"
+                value="M"
+                [(ngModel)]="person.genero"
+                name="generoRadio"
+                id="rdoMasculino" required>
+                <label class="form-check-label" for="rdoMasculino">
+                  "Masculino"
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" 
+                value="F"
+                [(ngModel)]="person.genero"
+                type="radio" 
+                name="generoRadio" 
+                id="rdoFemenino" required>
+                <label class="form-check-label" for="rdoFemenino">
+                 Femenino
+                </label>
+              </div>
+
+        </div>
+    </div>
+
+      <!-- switches -->
+      <div class="row mb-3">
+        <div class="col-sm-3 col-form-label">Notificaciones</div>
+        <div class="col-sm-9 ">
+            <div class="form-check form-switch mt-2">
+                <input class="form-check-input"
+                    type="checkbox" 
+                    [(ngModel)]="person.notifications"
+                    id="swNotification" 
+                    name="swNotification">
+                <label class="form-check-label" for="swNotification">Quiero Recibir Notificaciones</label>
+              </div>
+        </div>
+      </div> 
+
+      <!-- Check -->
+      <div class="row mb-3">
+        <div class="col-sm-3 col-form-label"></div>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    [(ngModel)]="termsAndConditions"
+                    name="chkTerminos"
+                    id="chkTerminos" required>
+                <label class="form-check-label" for="chkTerminos">
+                  Terminos y condiciones
+                </label>
+              </div>
+        </div>
+      </div> 
+      
+      <div class="row">
+          <div class="col">
+              <button 
+              class="btn btn-primary float-end" 
+              [disabled]="myForm.invalid"
+              type="button">
+                  Guardar
+              </button>
+          </div>
+      </div>
+</form>
+
+
+<h5>
+    Valor del formulario
+</h5> 
+<pre>
+    {{myForm.value | json}}
+</pre>
+<h5>
+    Valid
+</h5> 
+<pre>
+    {{myForm.valid}}
+</pre>
+<h5>
+    Terminos
+</h5> 
+<pre>
+    {{myForm.controls?.chkTerminos?.errors | json}}
+</pre>
+<h5>
+    Condiciones:
+</h5> 
+<pre>
+    
+</pre>

@@ -25,14 +25,12 @@ export class DynamicsComponent {
 
   @ViewChild('myForm') myForm!: NgForm;
 
+  newGame: string="";
+
   person: Person = {
     name: 'John',
     favorites: [
-      { id: 1, name: 'fifa 2021' },
-      { id: 2, name: 'fifa 2020' },
-      { id: 3, name: 'fifa 2019' },
-      { id: 4, name: 'fifa 2018' },
-      { id: 5, name: 'fifa 2017' }
+     
     ]
   };
   
@@ -52,4 +50,13 @@ export class DynamicsComponent {
     console.log(this.person.favorites.splice(index, 1)); 
   }
 
+  add( ): void {
+    const newFavorite: Favorito = {
+      id: this.person.favorites.length + 1,
+      name: this.newGame
+    }
+    this.person.favorites.push({...newFavorite});
+
+    this.newGame="";
+  }
 }
