@@ -1,7 +1,7 @@
 <h2>Reactive: switches</h2>
 <hr>
 
-<form >
+<form [formGroup]="myForm" (ngSubmit)="save()">
 
     <!-- Radio -->
     <div class="row mb-3">
@@ -11,21 +11,19 @@
             <div class="form-check">
                 <input class="form-check-input" 
                 type="radio"
-                value="M"
-               
-                name="generoRadio"
-                id="rdoMasculino" required>
+                formControlName="genero"
+                id="rdoMasculino" value="M">
                 <label class="form-check-label" for="rdoMasculino">
                   "Masculino"
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" 
+                <input
                 value="F"
-                
+                class="form-check-input"
                 type="radio" 
-                name="generoRadio" 
-                id="rdoFemenino" required>
+                formControlName="genero" 
+                id="rdoFemenino" >
                 <label class="form-check-label" for="rdoFemenino">
                  Femenino
                 </label>
@@ -43,7 +41,7 @@
                     type="checkbox" 
                    
                     id="swNotification" 
-                    name="swNotification">
+                    formControlName="notifications">
                 <label class="form-check-label" for="swNotification">Quiero Recibir Notificaciones</label>
               </div>
         </div>
@@ -58,7 +56,7 @@
                     class="form-check-input" 
                     type="checkbox" 
                    
-                    name="chkTerminos"
+                    formControlName="termsAndConditions"
                     id="chkTerminos" required>
                 <label class="form-check-label" for="chkTerminos">
                   Terminos y condiciones
@@ -70,15 +68,14 @@
       <div class="row">
           <div class="col">
               <button 
-              class="btn btn-primary float-end" 
-             
-              type="button">
+              class="btn btn-primary float-end"
+              type="submit">
                   Guardar
               </button>
           </div>
       </div>
 </form>
-<!-- 
+
 
 <h5>
     Valor del formulario
@@ -92,15 +89,11 @@
 <pre>
     {{myForm.valid}}
 </pre>
+
 <h5>
-    Terminos
+    Person
 </h5> 
 <pre>
-    {{myForm.controls?.chkTerminos?.errors | json}}
+    {{person | json}}
 </pre>
-<h5>
-    Condiciones:
-</h5> 
-<pre>
-    
-</pre> -->
+

@@ -1,0 +1,97 @@
+<h2>Registro de usuarios</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form [formGroup]="myForm">
+            <!-- Nombre del usuario -->
+            <div class="row mb-3" autocomplete="off">
+                <div class="col-sm-3 col-form-label">
+                    <label for="name">Nombre:</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text"             
+                    id="name" 
+                    placeholder="Nombre del usuario"
+                    class="form-control"
+                    formControlName="name">
+                    <span class="form-text 
+                    text-danger" *ngIf="isNotFieldValid('name')">El nombre debe ser en 
+                    formato de nombre y apellido.</span>
+                </div>
+            </div>
+            <!-- correo del usuario del usuario -->
+            <div class="row mb-3">
+                <div class="col-sm-3 col-form-label">
+                    <label for="name">E-mail:</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="email"             
+                    id="name"             
+                    placeholder="Email del usuario"
+                    class="form-control" 
+                    >            
+                </div>
+            </div>
+            <!-- correo del usuario del usuario -->
+            <div class="row mb-3">
+                <div class="col-sm-3 col-form-label">
+                    <label for="name">Username:</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="email"             
+                    id="name"             
+                    placeholder="Email del usuario"
+                    class="form-control" 
+                    >            
+                </div>
+            </div>
+            <!-- correo del usuario del usuario -->
+            <div class="row mb-3">
+                <div class="col-sm-3 col-form-label">
+                    <label for="name">Password:</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="password"             
+                    id="name"             
+                    placeholder="contrasena del usuario"
+                    class="form-control" 
+                    >            
+                </div>
+            </div>
+            <!-- correo del usuario del usuario -->
+            <div class="row mb-3">
+                <div class="col-sm-3 col-form-label">
+                    <label for="name">Confirmar:</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="password"             
+                    id="name"             
+                    placeholder="Confirmar contrasena del usuario"
+                    class="form-control" 
+                    >            
+                </div>
+            </div>
+            <div class="row-mb3">
+                <div class="col-sm-12">
+                    <button class="btn btn-outline-primary float-end">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="row-mb-3">
+    <div class="col">
+
+        <h3>Form Valid: {{ myForm.valid | json }}</h3>
+    </div>
+    <div class="col">
+
+        <h3>Name Errors: {{ myForm.controls.name.errors| json }}</h3>
+    </div>
+
+</div>

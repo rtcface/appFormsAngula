@@ -29,8 +29,9 @@ export class DynamicsComponent {
   {
     if(this.newFavorite.invalid){return;}
 
-    this.favoritesArr.push( new FormControl( this.newFavorite.value ) );
-
+    //this.favoritesArr.push( new FormControl( this.newFavorite.value,Validators.required ) );
+    this.favoritesArr.push( this.fb.control( this.newFavorite.value,Validators.required ) );
+    this.newFavorite.reset();
   }
 
   save() {
@@ -46,6 +47,10 @@ export class DynamicsComponent {
 
   get favoritesArr(){
     return this.myForm.get('favorites') as FormArray;
+  }
+
+  delete( id: number){
+    this.favoritesArr.removeAt(id);
   }
  
 }
