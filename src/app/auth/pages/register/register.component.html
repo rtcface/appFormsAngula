@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col">
-        <form [formGroup]="myForm">
+        <form (ngSubmit)="save()" [formGroup]="myForm">
             <!-- Nombre del usuario -->
             <div class="row mb-3" autocomplete="off">
                 <div class="col-sm-3 col-form-label">
@@ -30,7 +30,9 @@
                     id="name"             
                     placeholder="Email del usuario"
                     class="form-control" 
-                    >            
+                    formControlName="email" >
+                    <span class="form-text 
+                    text-danger" *ngIf="isNotFieldValid('email')">El no es valido.</span>            
                 </div>
             </div>
             <!-- correo del usuario del usuario -->
@@ -40,10 +42,13 @@
                 </div>
                 <div class="col-sm-9">
                     <input type="email"             
-                    id="name"             
+                    id="name" 
+                    formControlName="username"            
                     placeholder="Email del usuario"
                     class="form-control" 
-                    >            
+                    > 
+                    <span class="form-text 
+                    text-danger" *ngIf="isNotFieldValid('username')">El usuario no puede ser rtcface.</span>            
                 </div>
             </div>
             <!-- correo del usuario del usuario -->
@@ -74,7 +79,7 @@
             </div>
             <div class="row-mb3">
                 <div class="col-sm-12">
-                    <button class="btn btn-outline-primary float-end">
+                    <button class="btn btn-outline-primary float-end" type="submit" >
                         Guardar
                     </button>
                 </div>
@@ -87,11 +92,19 @@
 <div class="row-mb-3">
     <div class="col">
 
-        <h3>Form Valid: {{ myForm.valid | json }}</h3>
+        <h5>Form Valid: {{ myForm.valid | json }}</h5>
     </div>
     <div class="col">
 
-        <h3>Name Errors: {{ myForm.controls.name.errors| json }}</h3>
+        Name Errors: {{ myForm.controls.name.errors| json }}
+    </div>
+    <div class="col">
+
+        E-mail Errors: {{ myForm.controls.email.errors| json }}
+    </div>
+    <div class="col">
+
+        Username Errors: {{ myForm.controls.username.errors| json }}
     </div>
 
 </div>
